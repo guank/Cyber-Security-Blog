@@ -1,0 +1,112 @@
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Defense Against Dark Arts</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+<body>
+<div class="header">
+    <div class="wrap">
+            <div class="logo"><a href="index.html"><img src="images/logo.png" alt="crocodile" /></a></div>
+            <div class="headerbox">
+                <div class="login">
+                    <ul>
+                        <li><a href="#">Sign in</a></li> |
+                        <li><a href="#">Register</a></li>
+                    </ul>
+                </div>
+                <div class="search">
+                    <form>
+                        <input type="text" value="Search" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Search';}">
+                        <input type="submit" value="Go" />
+                    </form>
+                </div>
+            </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="wrap">
+    <div class="main">
+        <div class="nav">
+        <ul>
+            <li class="active"><a href="index.html">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Our Works</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+        <div class="content">
+        <article>
+        <h1>Week 7: Web - Security Tools Techniques</h1>
+        <p>Name: Kevin Guan</p><br>
+        <p>The main subject of the seventh week is security tools and techniques. One of the topics that were discussed was user-level attacks. As mentioned in the lecture, the user is usually the weakest link that leads to an attack. Some of the most common user traits that exploiters abuse are impatience, laziness, self-proclaimed omniscience, and clickaholics. Through social engineering, abusers are able to profit off exploits like phishing, malvertising, or social media link insertion. These exploits are often easy to avoid if the user pays attention to the site that they visit; however, there will be the small percent of the population who are not very literate on the web or follows the allurement of the social engineering that end up becoming victims to these scams. Anyhow, users are not helpless. Developers have implemented defenses that allow users to less likely become prey for these malicious exploiters. Some of the more common methods include site certification services, domain reputation systems, client and gateway AV/AM, safe url shorteners, and content provider education. Nonetheless, the best way to prevent these types of exploits is end user education and learning about the different forms of abuse that are on the web nowadays. </p><br>
+        <p>While user-level attacks are common, the blame can also be due to vulnerabilities inside the user's browsers. It is possible for a browser to download and execute malicious content on the web without any awareness that the content was malicious such as shellcodes that can execute through the browser's script engine. Another common form of attack that is not blamed on the user is the man-in-the-middle attack. This form of attack takes advantage of a victim's web traffic and allows the exploiter to be able to snoop on all of the user's incoming and outgoing traffic. The exploiter even have the ability to rewrite the content within the traffic at both the proxy-level and packet-level.</p><br>
+        <p>Eventually, we utilize the WebGoat to explore some of the exploits that hackers may use when attacking a site. In the first lab that involved attacking the WebGoat, we utilized Firefox 35 that was integrated with a Tamper Data plugin that hangs up all GET and POST operations. In the meanwhile, the users have the liberty to manipulate certain fields inside the hanged operations before allowing the process to continue afterwards. For the first attack, the attack consisted of executing a stored cross site scripting (XSS) onto the goat. The process started with logging into the user interface as Tom. After the login was successful, we accessed Tom's user profile and inserted an alert script into the street field. </p><br>
+        <img src="seven/a1.PNG" alt="x"><br>
+        <p>Next, Tom's account was logged off before logging into Jerry's account. When accessing Jerry's profile, the alert message that was implemented within Tom's street field appeared.</p><br>
+        <img src="seven/a3.PNG" alt="x"><br>
+        <p>For the second attack, the main target involved the abusing of an improper error handling. For this case, there were issues with the query parameters where the password can be bypassed via the creation of an error in the backend. With the usage of the Tamper Data tool, we were able to bypass the password requirement when the password element was deleted from the post parameter list.</p><br>
+        <img src="seven/p2.PNG" alt="x"><br>
+        <img src="seven/p22.PNG" alt="x"><br>
+        <p>For the third attack, we would be exploiting the flaws within the SQL of the page in order to make the page return all rows from its table. One of the methods involved changing up the POST parameters via the Tamper plugin. For this case, the station parameter was changed to 101 OR 1=1 in order to lead to the new, tampered results. Another method that can achieve similar results would be adding "&station = 102 OR 1=1" to the URL.</p><br>
+        <img src="seven/p3.PNG" alt="x"><br>
+        <img src="seven/p33.PNG" alt="x"><br>
+        <p>Wrap-Up Discussion</p>
+        <p>1. An example would be a scenario where people's personal information that are stored within the web application are leaked and abused by many others. Another instance would be where the hacker can inject malicious pieces of code into the site that would create instability throughout the entirety of the site. </p>
+        <p>2. End-users can be wary of the sites that they use and visit. If the website looks poorly designed and unpolished, it would be a good idea for users to avoid the site and find an alternative. </p>
+        <p>3. Web application developers need to learn about the different methods that hackers can use to abuse websites. With proper awareness of these threats, they can develop code that will not fall into the criteria that attackers sought for when attacking sites.</p>
+        <p>4. Important skills for web application developers need would be the ability to properly wireframe the web application and implement the required HTML and CSS that will run the application securely and smoothly.</p>
+        <p>5. An appropriate method to continue with WebGoat is to use it as a platform for becoming more aware of the mechanics behind some of the most common forms of web attacks. By becoming educated on the subject, the process in developing secure websites and applications improves where the developer will be less likely to create code that will fall into the same pitfalls that the applications on the WebGoat fell into.</p>
+        <p></p><br>
+       </article>
+        </div>	
+        <div class="sidebar">
+            <div class="recent">
+                <h3>Posts</h3>
+                <ul>
+                    <li><a href="week1.html">Week 1 Content</a></li>
+                    <li><a href="week2.html">Week 2 Content</a></li>
+                    <li><a href="week3.html">Week 3 Content</a></li>
+                    <li><a href="week4.html">Week 4 Content</a></li>
+                    <li><a href="week5.html">Week 5 Content</a></li>
+                    <li><a href="week6.html">Week 6 Content</a></li>
+                    <li><a href="week7.html">Week 7 Content</a></li>
+                    <li><a href="week8.html">Week 8 Content</a></li>
+                    <li><a href="week9_10.html">Week 9 & 10 Content</a></li>
+                </ul>
+            </div>
+            <div class="add">
+            	<a href="#"><img src="images/add.png" align="300x250" /></a>
+            </div>
+        </div>
+     <div class="clear"></div>
+   </div>
+<div class="f-menu">
+    <ul>
+    	<h4>About</h4>
+        <li><a href="index.html">Kevin Guan</a></li>
+    </ul>
+    <ul>
+    	<h4>Affiliation</h4>
+        <li><a href="index.html">Oregon State University</a></li>
+    </ul>
+    <ul>
+    	<h4>Contact</h4>
+        <li><input type="text" value=""  /></li>
+        <li><textarea></textarea></li>
+        <li><input type="submit" value="Send" /></li>
+    </ul>
+        <div class="clear"></div>
+    <div class="copy">© 2012 All rights reserved. Designed by <a href="http://w3layouts.com">W3Layouts</a> Powered by <a href="http://bigw3.com">Bigw3</a></div>
+</div>
+</div>
+</body>
+</html>

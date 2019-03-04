@@ -1,0 +1,118 @@
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Defense Against Dark Arts</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+<body>
+<div class="header">
+    <div class="wrap">
+            <div class="logo"><a href="index.html"><img src="images/logo.png" alt="crocodile" /></a></div>
+            <div class="headerbox">
+                <div class="login">
+                    <ul>
+                        <li><a href="#">Sign in</a></li> |
+                        <li><a href="#">Register</a></li>
+                    </ul>
+                </div>
+                <div class="search">
+                    <form>
+                        <input type="text" value="Search" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Search';}">
+                        <input type="submit" value="Go" />
+                    </form>
+                </div>
+            </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="wrap">
+    <div class="main">
+        <div class="nav">
+        <ul>
+            <li class="active"><a href="index.html">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Our Works</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+        <div class="content">
+        <article>
+        <h1>Week 3: Malware Defenses</h1>
+        <p>Name: Kevin Guan</p><br>
+        <p>For week 4, the lectures and labs investigated numerous methods that people utilize to counter numerous forms of malware. When investigating the four mystery files inside Desktop\malware\MalwareDefense\Class2, three of the four files were found as malicious. The process involved renaming the suspected files as evil.exe and executing it with the usage of Process Monitor and Antispy to track if there are any significant difference of activities in the background. The executable is assumed malicious if there is a sudden rush of activities or the activities involved registry changes like RegCreateKey or RegSetValue. Additionally, the malicious files often cause the virtual machine stability issues and crash Windows Explorer. The malignant files have the hash 068d5b62254dc582f3697847c16710b7, 00670F2B9631D0F97C7CFC6C764DD9D9, and A1874f714f7a15399b9fae968180b303. The file with the hash, 4844fd851088a11e240cfe5b54096209, started a program called LADS when executed. Upon further investigation, the program is a tool that lists data streams of certain directories and is not considered malicious.</p><br>
+        <p>Selected Malware Hash: 068d5b62254dc582f3697847c16710b7</p><br>
+        <p>Data & Time: Started at 1-31-2016/8:34PM, Ended at 1-31-2016/8:55PM</p><br>
+        <p>Yara Rules for this Sample: </p><br>
+        <img src="w4/yara.PNG" alt="First" style="width:500px;height:228px;"><br>
+        <img src="w4/yara0.PNG" alt="Second" style="width:500px;height:228px;"><br>
+        <p>The investigation began with renaming the malware file as evil.exe and executing it under the monitoring of Flypaper, Fakenet, Process Monitor, Process Explorer, and AntiSpy. Upon initiation, 
+Fakenet reported DNS queries from the domains 250.255.255.239.in-addr.arpa and c.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.2.0.f.f.ip6.arpa. When looking up these domains on Google, the results were varied and contained little definitive statements. The notable assumption is that the domain is under the guise of a proxy and hiding the domain's real identity. 
+        </p><br>
+        <img src="w4/3.PNG" alt="Third" style="width:500px;height:228px;"><br>
+        <p>Afterwards, Process Monitor was inspected to check for any notable activities. Upon near the beginning, the main activity revolved around the CreateFile operation in the path C:\del31093.bat. When the same directory was later inspected with AntiSpy, the batch file was no longer present. The assumption is that the purpose of the .bat file is to setup the environment for the malware to function and persist in the event of any system changes. </p><br>
+        <img src="w4/1.PNG" alt="Fourth" style="width:500px;height:228px;"><br>
+        <p>Eventually, the malware progressed in querying registry values that relate to Key Management Service and initiated a CreateFile operation in C:\Windows\System32\winevt\Logs\Key Management Service.evtx. After research, it appears that Key Management Service's main function is the management of the system's Windows Key and Activation. </p><br>
+        <img src="w4/12.PNG" alt="Fifth" style="width:500px;height:228px;"><br>
+        <img src="w4/13.PNG" alt="Sixth" style="width:500px;height:228px;"><br>
+        <p>Soon, the malware began writing numerous files in the directory C:\Windows\System32\PerfStringBackup.TMP.  When investigating PerfStringBackup, it appears that the file is malicious and known for slowing down the computer's system and creating malicious pop-ups. </p><br>
+        <img src="w4/16.PNG" alt="Seventh" style="width:500px;height:228px;"><br>
+        <p>After waiting for several more minutes, the operations began writing files inside the directory C:\Windows\CSC\v2.0.6\namespace. When researching this file path, it appears that many malicious malware use this created space to store temporary files that contain security information like usernames or passwords. </p><br>
+        <img src="w4/7.PNG" alt="Eighth" style="width:500px;height:228px;"><br>
+        <p>When looking at all of the gathered information, it is safe to assume that this malware is a Trojan that revolves the stealing of information. The type of information that the malware was targeting is not entirely clear. When looking at the monitoring programs, the malware was querying many registries that involved CurrentControlSet and Key Management Service. The hypothesis is either that the Trojan is a keylogger based on the amount of monitoring that the malware undergoes or a malware that aims at taking the Windows Key from the system for the malware owner's personal gain due to the many activities that involved Key Management Service. 
+        </p>
+        <p>Overall, the entirety of the lab exhibits some of the practices that experts use to defend against malware on a regular basis. The process has brought more attention to the effectiveness of using good generic rules in Yara and its usage to detect certain strings and conditions in many forms of malware; however, there is the issue where if the rules become too generic, they may interfere with system files that the computer needs to operate properly. Accordingly, the most effective Yara rules need to sustain a proper balance between breadth and depth. 
+        </p>
+        <p>Another interesting subject that was discussed this week is the exploration of the today's popular technologies in malware defense. It is common knowledge that network firewalls, network intrusion preventions, and the other similar technologies have blocking dangerous threats as their main priorities; however, these prevention technologies are only effective as far as the administrator's abilities and knowledge. The technologies are very capable of preventing the threats, but if the administrator is clueless, then the defenses of the technology will be limited and place their systems at risk. In today's time, it is commonplace for many new malwares and threats to be released on an everyday basis. The issue has grown to the point where many new products may already fall behind the latest threats within the day of their releases. It is important for administrators to stay educated and aware of the constant changes of the potential threats that may take place in their surroundings, so they can keep their systems updated and secured.</p>
+        <p></p><br>
+       </article>
+        </div>	
+        <div class="sidebar">
+            <div class="recent">
+                <h3>Posts</h3>
+                <ul>
+                    <li><a href="week1.html">Week 1 Content</a></li>
+                    <li><a href="week2.html">Week 2 Content</a></li>
+                    <li><a href="week3.html">Week 3 Content</a></li>
+                    <li><a href="week4.html">Week 4 Content</a></li>
+                    <li><a href="week5.html">Week 5 Content</a></li>
+                    <li><a href="week6.html">Week 6 Content</a></li>
+                    <li><a href="week7.html">Week 7 Content</a></li>
+                    <li><a href="week8.html">Week 8 Content</a></li>
+                    <li><a href="week9_10.html">Week 9 & 10 Content</a></li>
+                </ul>
+            </div>
+            <div class="add">
+            	<a href="#"><img src="images/add.png" align="300x250" /></a>
+            </div>
+        </div>
+     <div class="clear"></div>
+   </div>
+<div class="f-menu">
+    <ul>
+    	<h4>About</h4>
+        <li><a href="index.html">Kevin Guan</a></li>
+    </ul>
+    <ul>
+    	<h4>Affiliation</h4>
+        <li><a href="index.html">Oregon State University</a></li>
+    </ul>
+    <ul>
+    	<h4>Contact</h4>
+        <li><input type="text" value=""  /></li>
+        <li><textarea></textarea></li>
+        <li><input type="submit" value="Send" /></li>
+    </ul>
+        <div class="clear"></div>
+    <div class="copy">© 2012 All rights reserved. Designed by <a href="http://w3layouts.com">W3Layouts</a> Powered by <a href="http://bigw3.com">Bigw3</a></div>
+</div>
+</div>
+</body>
+</html>

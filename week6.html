@@ -1,0 +1,126 @@
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Defense Against Dark Arts</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+<body>
+<div class="header">
+    <div class="wrap">
+            <div class="logo"><a href="index.html"><img src="images/logo.png" alt="crocodile" /></a></div>
+            <div class="headerbox">
+                <div class="login">
+                    <ul>
+                        <li><a href="#">Sign in</a></li> |
+                        <li><a href="#">Register</a></li>
+                    </ul>
+                </div>
+                <div class="search">
+                    <form>
+                        <input type="text" value="Search" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Search';}">
+                        <input type="submit" value="Go" />
+                    </form>
+                </div>
+            </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="wrap">
+    <div class="main">
+        <div class="nav">
+        <ul>
+            <li class="active"><a href="index.html">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Our Works</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+        <div class="content">
+        <article>
+        <h1>Week 6: Network Security</h1>
+        <p>Name: Kevin Guan</p><br>
+        <p>The main subject for this week's content is network security and its importance in the creation of safe space on the network. There are many different forms of threats that are harmful on the network, such as worms, botnets, and theft of network resources. The primary purpose of network security is to prevent these forms of threats from creating trouble on the network. Some common methods of network security include positive policy, quarantine, honeynets, and intrusion detection.</p><br>
+        <p>To dive deeper into the subject, one of the more prominent network security that more people are familiar with is the firewall. The main job of the firewall is to divide the zones of different network policies, restricting access based on policies. The policies are often based on the filtering of traffic and deciding which traffic will be allowed to enter. It can be described as communication between IP to IP address and back. An example would be an application with its IP to another IP like Gmail from user stations to the internet. In addition, many modern firewalls have developed additional functions, like routing and IPS, and have grown into a large industry of its own.</p><br>
+        <p>During this week, we also analyzed network security via two different labs. For the first lab, the main goal was analyzing a plethora of data within three Wireshark pcap files in order to answer three different questions. The first question asks for the day of the week that the conspirators were planning to meetup. For this question, the first action was to search for a string that the conspirators may use for this case and filter out the data. This process led to some IRC stream that was exchanged between Greg and Betty that questioned about a day of meeting. The responding message was encoded, so the conversation was saved and applied the provided decode script to read the message. The decoded message revealed the meeting day was Wednesday.</p><br>
+        <p>Decoded Message</p><br>
+        <img src="six/1.PNG" alt="One" style="width:500px;height:228px;"><br>
+        <p>For the second Wireshark pcap file, the question was determining the city that the meeting will take place. This case was more difficult to determine than the previous. Most of the methods that were applied from the previous case did not work. The conspirators were more careful in this case. The first step that was taken in this case was sorting the TCP streams and looking through each of them. During the inspection, there was a fishy file named r3nd3zv0us. The file triggered red flags and prompted further investigation that revealed the sender tried to transfer a 819200 byte file. The stream was followed and extracted the file, but the file did not have any particularly known format, so the search continued. The next step involved identifying the different hosts that were present in the pcap file and decoding any suspicious messages. Eventually, this search led to a message that was sent via the hose, mail.aol.com. After decoding the message, the message's details were about meeting up again, alongside a password, S3cr3tVV34p0n, that will reveal the location of the meeting. The password was ambiguous in the beginning, but when it was applied to the 819200 byte file that was extracted earlier via Truecrypt, it revealed text file that contained the message, "See you soon," and an image of the meeting location, Las Vegas. </p><br>
+        <p>Suspicious Message and File</p><br>
+        <img src="six/3.PNG" alt="Three" style="width:500px;height:228px;"><br>
+        <p></p><br>
+        <img src="six/5.PNG" alt="Five" style="width:500px;height:228px;"><br>
+        <p>Encrypted Image of Meeting Place</p><br>
+        <img src="six/8.PNG" alt="Eight" style="width:500px;height:228px;"><br>
+        <p>The third Wireshark pcap file was more simple than the second. The third question asks about the number of bytes that was contained in the malicious payload. The first step for this process involved filtering the HTTP results and look for the HTTP GET request that was responsible. One of the GET results involved the website, paimia.com. After investigating the website, the site has a history with malware, so the stream was investigated further and identified the number of bytes inside that payload to be 3113.</p><br>
+        <p>Malicious Payload</p><br>
+        <img src="six/12.PNG" alt="Twelve" style="width:500px;height:228px;"><br>
+        <p>For the second lab, the main objective was to utilize Python scripts to analyze another set of data for analysis and discover certain patterns. For the first question, it was found that the most prominent TCP destination port inside R.csv was 139 with 137 as the most prominent UDB destination port. With the /etc/services file, the communications are affiliated with a communication service named NETBIOS. For O.csv, the most prominent TCP destination port was 25 with 5001 as the most prominent USB destination port. With the service file, the TCP port was identified as a SSH Remote Login Protocol for mail. The UDB destination port had to be looked up online that revealed it as a port for communications protocol alongside a history of affiliations with malware. It is likely that the communications in O.csv are based on an attacker from home or work.</p><br>
+        <p>The third question investigates the IP addresses within the stored data based on usage. For R.csv, the most prominent source IP was 10.5.63.230 with 43,338 usage count. The most prominent destination IP was 234.142.142.142, running with a usage count of 42981. The network prefix that dominates the communication for R.csv is likely class A [0.0.0.0 - 127.255.255.255, default mask /8]. For O.csv, the source IP with highest usage count was 192.245.12.221 at 169,643 times. For destination IP, 192.245.12.221 had the highest with a usage count of 118,662 times. The network prefix that dominates the communication for O.csv is likely  class C [192.0.0.0 - 223.255.255.255, default mask /24].</p><br>
+        <p>Question six of the lab involves categorizing the different protocols of the IP addresses. GRE, IPSEC, and OSPF are the protocols of interest. GRE's protocol number is 47. IPSEC's protocol number is 51. OSPF's protocol number is 89. After analyzing through both R.csv and O.csv, only O.csv contained IP addresses with affiliation to the protocols of interest. The IP addresses for each affiliation are shown below. For question eight, the OSPF information confirms the answer for question 2 from earlier that the communications in O.csv are based in a home or work network as the limited number of IP addresses suggests that routers for the communications are based within the same broadcast domain. </p><br>
+        <p>Protocol Counts</p><br>
+        <img src="six/proto.PNG" alt="x" style="width:500px;height:228px;"><br>
+        <img src="six/a.PNG" alt="x"><br>
+        <img src="six/b.PNG" alt="x" style="width:500px;height:228px;"><br>
+        <img src="six/c.PNG" alt="x"><br>
+        <p>Python Script</p><br>
+        <img src="six/py1.PNG" alt="x"><br>
+        <img src="six/py2.PNG" alt="x"><br>
+        <img src="six/py3.PNG" alt="x"><br>
+        <p>Robustness Coloring</p><br>
+        <img src="six/rb1.PNG" alt="x"><br>
+        <img src="six/rb2.PNG" alt="x"><br>
+        <p>Firewall Policy</p><br>
+        <img src="six/fwall.PNG" alt="x"><br>
+        <p></p><br>
+       </article>
+        </div>	
+        <div class="sidebar">
+            <div class="recent">
+                <h3>Posts</h3>
+                <ul>
+                    <li><a href="week1.html">Week 1 Content</a></li>
+                    <li><a href="week2.html">Week 2 Content</a></li>
+                    <li><a href="week3.html">Week 3 Content</a></li>
+                    <li><a href="week4.html">Week 4 Content</a></li>
+                    <li><a href="week5.html">Week 5 Content</a></li>
+                    <li><a href="week6.html">Week 6 Content</a></li>
+                    <li><a href="week7.html">Week 7 Content</a></li>
+                    <li><a href="week8.html">Week 8 Content</a></li>
+                    <li><a href="week9_10.html">Week 9 & 10 Content</a></li>
+                </ul>
+            </div>
+            <div class="add">
+            	<a href="#"><img src="images/add.png" align="300x250" /></a>
+            </div>
+        </div>
+     <div class="clear"></div>
+   </div>
+<div class="f-menu">
+    <ul>
+    	<h4>About</h4>
+        <li><a href="index.html">Kevin Guan</a></li>
+    </ul>
+    <ul>
+    	<h4>Affiliation</h4>
+        <li><a href="index.html">Oregon State University</a></li>
+    </ul>
+    <ul>
+    	<h4>Contact</h4>
+        <li><input type="text" value=""  /></li>
+        <li><textarea></textarea></li>
+        <li><input type="submit" value="Send" /></li>
+    </ul>
+        <div class="clear"></div>
+    <div class="copy">© 2012 All rights reserved. Designed by <a href="http://w3layouts.com">W3Layouts</a> Powered by <a href="http://bigw3.com">Bigw3</a></div>
+</div>
+</div>
+</body>
+</html>

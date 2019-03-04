@@ -1,0 +1,105 @@
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Defense Against Dark Arts</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+<body>
+<div class="header">
+    <div class="wrap">
+            <div class="logo"><a href="index.html"><img src="images/logo.png" alt="crocodile" /></a></div>
+            <div class="headerbox">
+                <div class="login">
+                    <ul>
+                        <li><a href="#">Sign in</a></li> |
+                        <li><a href="#">Register</a></li>
+                    </ul>
+                </div>
+                <div class="search">
+                    <form>
+                        <input type="text" value="Search" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Search';}">
+                        <input type="submit" value="Go" />
+                    </form>
+                </div>
+            </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="wrap">
+    <div class="main">
+        <div class="nav">
+        <ul>
+            <li class="active"><a href="index.html">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Our Works</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+        <div class="content">
+        <article>
+        <h1>Week 5: Windows Internals</h1>
+        <p>Name: Kevin Guan</p><br>
+        <p>This week's material explored the topic of Windows Internals. One of the key subjects that was explored was the understanding of numerous stealth techniques that are implemented by different malwares. One example that was mentioned was the abuse of certain software like Sony's music encryption software where people could exploit it via renaming malware and hiding them within music files. Through this exploit, abusers were able to distribute malware on a large scale because many system kernels at the time were unable to uncover the hidden files. </p><br>
+        <p>Another method that people may use to implement hidden files is the usage of rootkits. The main definition of a rootkit is that it is a process that will actively seek to conceal its presence from the system and its users. The core concept lies in the interception of regular program flow to hide anything like additional malware. However, they are not the biggest problem that is plaguing systems today. One of the reasons is due to the greater challenge for rootkits to infiltrate 64 bit kernels alongside the greater prevalence of 64-bit operating system kernels in modern systems.While it is not the most prevalent form of malware, in which only around ten percent of modern malwares apply the usage of rootkits, they are often studied by many people to garner a better understanding about kernel security challenges. Only through additional research via studying about kernel security, researchers were able to discover that rootkits can still infiltrate 64 bit operating system kernels, like the driver signing check bypass method or the Windows boot path modification exploit, and promptly address these new vulnerability. </p><br>
+        <p>Additionally, in this week, we also explored rootkits in action through the Agony Lab. In the lab, we utilized numerous tools to analyze a sample and its interactions that allow it to hide within the system kernel. At the beginning, the lab incorporates the usage of Cuckoo to generate three folders that contains three different bin files, sortdefault.nls.bin, tzres.dll.bin, and bad.bin (the original malware file). Afterwards, there was strange behavior taking place with the mouse, and FakeNet detected communications with pythonware.com, a somewhat desolate website. In addition, when calling for the analyzer.py directory through the regular call directory method, the directory looks unchanged from before. However, when the system specifically looks for a sys file within the directory, the new file, wininit.sys, appears. Clearly, this file was implemented through a rootkit if it was able to hide from the earlier directory command.</p><br>
+        <img src="w5/1.PNG" alt="Fifth" style="width:500px;height:228px;"><br>
+        <img src="w5/2.PNG" alt="Fifth" style="width:500px;height:228px;"><br>
+        <p>We also utilized a tool called Tuluka during this process. Through Tuluka, it is able find three functions that are labeled as suspicious, NtEnumerateValueKey, NtQueryDirectoryFile, and NtQuerySystemInformation. For this case, the abuser has hooked these three files where they each have specific rules within them. One of these rules hides the files within their given directory, making the detection of these potentially malicious files difficult through regular anti-malware programs. However, Tuluka can fix this issue via patching the original address back through its restore service function. The missing file should be visible again after this implementation. Furthermore, Tuluka will also show the areas where the malware is interfering with kernel memory space. Any address above eight and seven zeroes are set as a kernel address and will be made clearly evident like the current case. </p><br>
+        <img src="w5/3.PNG" alt="Fifth" style="width:500px;height:228px;"><br>
+        <p>Agony Offsets from Infected APIs:</p><br>
+        <img src="w5/offset1.PNG" alt="Fifth" style="width:500px;height:228px;"><br>
+        <img src="w5/offset2.PNG" alt="Fifth" style="width:500px;height:228px;"><br>
+        <img src="w5/offset3.PNG" alt="Fifth" style="width:500px;height:228px;"><br>
+        <p></p><br>
+       </article>
+        </div>	
+        <div class="sidebar">
+            <div class="recent">
+                <h3>Posts</h3>
+                <ul>
+                    <li><a href="week1.html">Week 1 Content</a></li>
+                    <li><a href="week2.html">Week 2 Content</a></li>
+                    <li><a href="week3.html">Week 3 Content</a></li>
+                    <li><a href="week4.html">Week 4 Content</a></li>
+                    <li><a href="week5.html">Week 5 Content</a></li>
+                    <li><a href="week6.html">Week 6 Content</a></li>
+                    <li><a href="week7.html">Week 7 Content</a></li>
+                    <li><a href="week8.html">Week 8 Content</a></li>
+                    <li><a href="week9_10.html">Week 9 & 10 Content</a></li>
+                </ul>
+            </div>
+            <div class="add">
+            	<a href="#"><img src="images/add.png" align="300x250" /></a>
+            </div>
+        </div>
+     <div class="clear"></div>
+   </div>
+<div class="f-menu">
+    <ul>
+    	<h4>About</h4>
+        <li><a href="index.html">Kevin Guan</a></li>
+    </ul>
+    <ul>
+    	<h4>Affiliation</h4>
+        <li><a href="index.html">Oregon State University</a></li>
+    </ul>
+    <ul>
+    	<h4>Contact</h4>
+        <li><input type="text" value=""  /></li>
+        <li><textarea></textarea></li>
+        <li><input type="submit" value="Send" /></li>
+    </ul>
+        <div class="clear"></div>
+    <div class="copy">© 2012 All rights reserved. Designed by <a href="http://w3layouts.com">W3Layouts</a> Powered by <a href="http://bigw3.com">Bigw3</a></div>
+</div>
+</div>
+</body>
+</html>
